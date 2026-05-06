@@ -135,6 +135,14 @@ img {
     display: inline-block;
 }
 
+/* Ensure visibility on primary color backgrounds */
+.page-header .text-gradient,
+.slide .text-gradient {
+    background: linear-gradient(45deg, #ffffff, #ffd1e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .creative-title {
     margin-bottom: 15px;
     letter-spacing: -0.5px;

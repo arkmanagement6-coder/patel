@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services & Pricing | KRV Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero2.png');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        .feature-list {
+            list-style: none;
+            margin-top: 15px;
+            flex-grow: 1;
+        }
+        .feature-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .feature-list i {
+            color: #25d366;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">KRV <span>Management</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+                <a href="auth.html" class="nav-link"><i class="fas fa-user"></i></a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>💻 Our Digital Services & Pricing</h1>
+            <p>Affordable, high-quality solutions designed to grow your business online.</p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="services-grid">
+                
+                <!-- Landing Page -->
+                <div class="service-card-v2">
+                    <h3 class="pink-text">High Converting Landing Pages</h3>
+                    <p class="text-muted">Powerful landing pages designed for marketing campaigns to generate leads and boost conversions.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Lead Generation Forms</li>
+                        <li><i class="fas fa-check"></i> WhatsApp Integration</li>
+                        <li><i class="fas fa-check"></i> Fast Loading Speed</li>
+                        <li><i class="fas fa-check"></i> Conversion Focused Design</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                    </ul>
+                    <div class="card-price">₹2,999/-</div>
+                    <div class="card-btns">
+                        <a href="service-details.html?id=lp" class="btn btn-outline">View Details</a>
+                        <button onclick="addToCart('lp', 'Landing Page', 2999)" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Static Website -->
+                <div class="service-card-v2">
+                    <h3 class="pink-text">Professional Static Websites</h3>
+                    <p class="text-muted">Perfect solution for businesses and startups who want a clean and professional online presence.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Clean Design</li>
+                        <li><i class="fas fa-check"></i> SEO Friendly</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fas fa-check"></i> Fast Performance</li>
+                        <li><i class="fas fa-check"></i> Low Maintenance</li>
+                    </ul>
+                    <div class="card-price">₹4,999/-</div>
+                    <div class="card-btns">
+                        <a href="service-details.html?id=sw" class="btn btn-outline">View Details</a>
+                        <button onclick="addToCart('sw', 'Static Website', 4999)" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing -->
+                <div class="service-card-v2">
+                    <h3 class="pink-text">Business Growth Marketing</h3>
+                    <p class="text-muted">Boost your brand visibility and generate leads with our expert digital marketing services.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Meta Ads (FB & Insta)</li>
+                        <li><i class="fas fa-check"></i> Google Ads</li>
+                        <li><i class="fas fa-check"></i> SEO Optimization</li>
+                        <li><i class="fas fa-check"></i> Social Media Marketing</li>
+                    </ul>
+                    <div class="card-price">₹7,999/-</div>
+                    <div class="card-btns">
+                        <a href="service-details.html?id=dm" class="btn btn-outline">View Details</a>
+                        <button onclick="addToCart('dm', 'Digital Marketing', 7999)" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- App Development -->
+                <div class="service-card-v2">
+                    <h3 class="pink-text">Custom App Development</h3>
+                    <p class="text-muted">We develop powerful and scalable applications tailored to your business needs.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Android & Web Apps</li>
+                        <li><i class="fas fa-check"></i> User-Friendly UI</li>
+                        <li><i class="fas fa-check"></i> Secure & Scalable</li>
+                        <li><i class="fas fa-check"></i> Admin Panel</li>
+                    </ul>
+                    <div class="card-price">₹19,999/-</div>
+                    <div class="card-btns">
+                        <a href="service-details.html?id=app" class="btn btn-outline">View Details</a>
+                        <button onclick="addToCart('app', 'App Development', 19999)" class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pricing Comparison Table -->
+            <div class="section-padding">
+                <h2 class="text-center" style="margin-bottom: 40px;">🎯 Compare Pricing</h2>
+                <div class="table-container">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Price</th>
+                                <th>Best For</th>
+                                <th>Delivery</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Landing Page</td>
+                                <td class="pink-text font-bold">₹2,999</td>
+                                <td>Ads & Leads</td>
+                                <td>2-3 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Static Website</td>
+                                <td class="pink-text font-bold">₹4,999</td>
+                                <td>Business Profile</td>
+                                <td>3-5 Days</td>
+                            </tr>
+                            <tr>
+                                <td>Digital Marketing</td>
+                                <td class="pink-text font-bold">₹7,999</td>
+                                <td>Growth</td>
+                                <td>Monthly</td>
+                            </tr>
+                            <tr>
+                                <td>App Development</td>
+                                <td class="pink-text font-bold">₹19,999</td>
+                                <td>Custom Solutions</td>
+                                <td>7-15 Days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">How do I start my order? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">Simply click on the "Buy Now" button for the service you need, complete the checkout process, and our team will contact you for requirements.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods are supported? <i class="fas fa-chevron-down"></i></div>
+                    <div class="faq-answer">We support UPI, Credit/Debit Cards, and Net Banking via secure payment gateways like Razorpay and Paytm.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding text-center" style="background: var(--primary-color); color: white;">
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p style="margin: 20px 0 30px;">Get a professional digital presence today.</p>
+            <a href="contact.html" class="btn" style="background: white; color: var(--primary-color);">Get a Custom Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 KRV Management. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919924818650" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        function addToCart(id, name, price) {
+            const cart = JSON.parse(localStorage.getItem('krv_cart') || '[]');
+            cart.push({ id, name, price });
+            localStorage.setItem('krv_cart', JSON.stringify(cart));
+            updateCartCount();
+            window.location.href = 'cart.html';
+        }
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('krv_cart') || '[]');
+            document.getElementById('cartCount').innerText = cart.length;
+        }
+        updateCartCount();
+    </script>
+</body>
+</html>

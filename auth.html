@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register | KRV Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background: var(--bg-light);">
+
+    <header class="sticky">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">KRV <span>Management</span></a>
+            <a href="index.html" class="nav-link">Back to Home</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="auth-container">
+            <!-- Login -->
+            <div id="loginForm">
+                <h2 class="pink-text">Login</h2>
+                <p class="text-muted" style="margin-bottom: 20px;">Welcome back!</p>
+                <form onsubmit="handleAuth(event, 'login')">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPass" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" style="width:100%">Login</button>
+                </form>
+            </div>
+
+            <!-- Register -->
+            <div id="registerForm">
+                <h2 class="pink-text">Register</h2>
+                <p class="text-muted" style="margin-bottom: 20px;">Join us today</p>
+                <form onsubmit="handleAuth(event, 'register')">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="regName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="regEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="tel" id="regPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="regPass" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline w-100" style="width:100%">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleAuth(e, type) {
+            e.preventDefault();
+            const user = {
+                name: type === 'register' ? document.getElementById('regName').value : 'Demo User',
+                email: type === 'register' ? document.getElementById('regEmail').value : document.getElementById('loginEmail').value,
+                phone: type === 'register' ? document.getElementById('regPhone').value : '9924818650'
+            };
+            localStorage.setItem('krv_user', JSON.stringify(user));
+            alert(type === 'register' ? 'Account Created!' : 'Logged In!');
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | KRV Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: var(--bg-light);">
+
+    <header class="sticky">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">KRV <span>Management</span></a>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span id="userName" class="font-bold">User</span>
+                <button onclick="logout()" class="btn btn-sm btn-outline">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard-wrapper">
+            <!-- Sidebar -->
+            <aside class="dash-sidebar">
+                <a href="#" class="dash-link active"><i class="fas fa-box"></i> My Orders</a>
+                <a href="#" class="dash-link"><i class="fas fa-user"></i> Profile Details</a>
+                <a href="#" class="dash-link"><i class="fas fa-headset"></i> Support</a>
+            </aside>
+
+            <!-- Main Content -->
+            <main>
+                <div class="service-card-v2" style="margin-bottom: 30px;">
+                    <h2 class="pink-text">Order History</h2>
+                    <div id="orderList" style="margin-top: 20px;">
+                        <!-- Orders will be injected here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('krv_user'));
+            if (!user) {
+                window.location.href = 'auth.html';
+                return;
+            }
+            document.getElementById('userName').innerText = user.name;
+            renderOrders();
+        }
+
+        function logout() {
+            localStorage.removeItem('krv_user');
+            window.location.href = 'index.html';
+        }
+
+        function renderOrders() {
+            const orders = JSON.parse(localStorage.getItem('krv_orders') || '[]');
+            const list = document.getElementById('orderList');
+            
+            if (orders.length === 0) {
+                list.innerHTML = '<p class="text-center text-muted">No orders found.</p>';
+                return;
+            }
+
+            let html = '';
+            orders.reverse().forEach(order => {
+                html += `
+                    <div class="service-card-v2" style="margin-bottom: 15px; background: white; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4 class="pink-text">Order #${order.id}</h4>
+                                <p class="text-muted">${order.date}</p>
+                            </div>
+                            <div class="status-badge status-new">Paid</div>
+                        </div>
+                        <div style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px;">
+                            <p><strong>Amount:</strong> ₹${order.total}</p>
+                        </div>
+                    </div>`;
+            });
+            list.innerHTML = html;
+        }
+
+        checkAuth();
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details | KRV Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="sticky">
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">KRV <span>Management</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 120px;">
+        <div class="checkout-grid">
+            <div>
+                <img id="serviceImg" src="assets/hero1.png" style="width: 100%; border-radius: 12px; margin-bottom: 30px;">
+                <h1 id="serviceTitle" class="pink-text">Service Name</h1>
+                <p id="serviceDesc" class="text-muted" style="font-size: 1.1rem; margin: 20px 0;"></p>
+                
+                <h3>Key Features</h3>
+                <ul id="featureList" class="feature-list" style="margin-top: 20px;">
+                    <!-- Features injected here -->
+                </ul>
+
+                <h3 style="margin-top: 40px;">FAQs</h3>
+                <div class="faq-container" style="margin-top: 20px;">
+                    <div class="faq-item">
+                        <div class="faq-question">How do I provide my requirements? <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">After placing the order, our project manager will contact you within 24 hours to collect all necessary details.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-summary" style="height: fit-content; position: sticky; top: 100px;">
+                <h2 id="servicePrice" class="pink-text">₹0</h2>
+                <p><strong>Delivery Time:</strong> <span id="deliveryTime">3-5 Days</span></p>
+                <div style="margin-top: 20px;">
+                    <button onclick="triggerAddToCart()" class="btn btn-primary w-100" style="width: 100%;">Add to Cart</button>
+                    <a href="https://wa.me/919924818650" class="btn btn-outline w-100" style="width: 100%; margin-top: 10px; text-align: center;">Ask Questions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const services = {
+            lp: {
+                title: "High Converting Landing Page",
+                desc: "Get a high-performance landing page optimized for Meta/Google ads. Includes lead forms and WhatsApp integration.",
+                price: 2999,
+                delivery: "2-3 Days",
+                features: ["Lead Gen Forms", "WhatsApp Integration", "Fast Speed", "Mobile Responsive"],
+                img: "assets/hero2.png"
+            },
+            sw: {
+                title: "Professional Static Website",
+                desc: "A clean, multi-page website for small businesses and startups. SEO optimized and blazingly fast.",
+                price: 4999,
+                delivery: "3-5 Days",
+                features: ["5-7 Pages", "SEO Friendly", "Contact Form", "Modern UI"],
+                img: "assets/hero1.png"
+            },
+            dm: {
+                title: "Business Growth Marketing",
+                desc: "Complete digital marketing package to grow your online presence and sales.",
+                price: 7999,
+                delivery: "Monthly",
+                features: ["Meta Ads", "Google Ads", "SEO Setup", "Social Media"],
+                img: "assets/hero3.png"
+            },
+            app: {
+                title: "Custom App Development",
+                desc: "Build your own mobile or web application with a secure admin panel and scalable architecture.",
+                price: 19999,
+                delivery: "7-15 Days",
+                features: ["Android/iOS", "Web App", "Admin Panel", "Cloud Storage"],
+                img: "assets/hero2.png"
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id') || 'lp';
+        const s = services[id];
+
+        if (s) {
+            document.getElementById('serviceTitle').innerText = s.title;
+            document.getElementById('serviceDesc').innerText = s.desc;
+            document.getElementById('servicePrice').innerText = `₹${s.price}/-`;
+            document.getElementById('deliveryTime').innerText = s.delivery;
+            document.getElementById('serviceImg').src = s.img;
+            
+            const list = document.getElementById('featureList');
+            s.features.forEach(f => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-check"></i> ${f}`;
+                list.appendChild(li);
+            });
+        }
+
+        function triggerAddToCart() {
+            addToCart(id, s.title, s.price);
+            window.location.href = 'cart.html';
+        }
+    </script>
+</body>
+</html>

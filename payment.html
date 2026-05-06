@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | KRV Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background: var(--bg-light);">
+
+    <div class="container" style="max-width: 500px; margin: 100px auto;">
+        <div class="service-card-v2" style="padding: 40px;">
+            <h2 class="text-center pink-text">Secure Payment</h2>
+            <p class="text-center text-muted">Choose your payment method</p>
+            
+            <div class="payment-options">
+                <div class="payment-method active" onclick="selectMethod(this, 'upi')">
+                    <i class="fas fa-mobile-alt" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <div>UPI</div>
+                </div>
+                <div class="payment-method" onclick="selectMethod(this, 'card')">
+                    <i class="fas fa-credit-card" style="font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <div>Card</div>
+                </div>
+            </div>
+
+            <div id="paymentContent" style="margin-top: 30px;">
+                <!-- UPI Details -->
+                <div id="upiFields">
+                    <div class="form-group">
+                        <label>Enter UPI ID</label>
+                        <input type="text" class="form-control" placeholder="username@upi">
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="simulatePayment()" id="payBtn" class="btn btn-primary w-100" style="width: 100%; margin-top: 20px;">Pay ₹0</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        let currentMethod = 'upi';
+        const cart = JSON.parse(localStorage.getItem('krv_cart') || '[]');
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById('payBtn').innerText = `Pay ₹${total}`;
+
+        function selectMethod(el, method) {
+            document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+            el.classList.add('active');
+            currentMethod = method;
+            
+            const content = document.getElementById('paymentContent');
+            if(method === 'card') {
+                content.innerHTML = `
+                    <div class="form-group"><label>Card Number</label><input type="text" class="form-control" placeholder="0000 0000 0000 0000"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div class="form-group"><label>Expiry</label><input type="text" class="form-control" placeholder="MM/YY"></div>
+                        <div class="form-group"><label>CVV</label><input type="password" class="form-control" placeholder="***"></div>
+                    </div>`;
+            } else {
+                content.innerHTML = `<div class="form-group"><label>Enter UPI ID</label><input type="text" class="form-control" placeholder="username@upi"></div>`;
+            }
+        }
+
+        function simulatePayment() {
+            const btn = document.getElementById('payBtn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                const billing = JSON.parse(localStorage.getItem('krv_billing'));
+                const orderId = processOrder({
+                    services: cart,
+                    total: total,
+                    customer: billing,
+                    method: currentMethod
+                });
+                window.location.href = `confirmation.html?id=${orderId}`;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

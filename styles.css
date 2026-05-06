@@ -141,8 +141,8 @@ img {
 
 /* --- Header --- */
 header {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 40px; /* Sits below the 40px offer banner */
     left: 0;
     width: 100%;
     z-index: 1000;
@@ -151,8 +151,9 @@ header {
 }
 
 header.sticky {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    background-color: var(--primary-color);
     padding: 15px 0;
     box-shadow: var(--shadow);
 }
@@ -166,11 +167,12 @@ header.sticky {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--white);
 }
 
 .logo span {
-    color: var(--primary-color);
+    color: var(--white);
+    opacity: 0.8;
 }
 
 .nav-menu {
@@ -180,7 +182,7 @@ header.sticky {
 
 .nav-link {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--white);
 }
 
 .nav-link:hover, .nav-link.active {
@@ -191,6 +193,14 @@ header.sticky {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: white;
+}
+
+.page-header {
+    background-color: var(--primary-color);
+    padding: 150px 0 100px;
+    color: white;
+    text-align: center;
 }
 
 /* --- Hero Slider --- */
@@ -216,18 +226,7 @@ header.sticky {
     transition: opacity 0.8s ease-in-out;
     display: flex;
     align-items: center;
-    background-size: cover;
-    background-position: center;
-}
-
-.slide::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
+    background-color: var(--primary-color);
 }
 
 .slide.active {
@@ -442,10 +441,9 @@ footer {
     padding: 10px 0;
     font-size: 0.9rem;
     font-weight: 600;
-}
-
-.offer-banner span {
-    color: var(--primary-color);
+    height: 40px;
+    position: relative;
+    z-index: 1001;
 }
 
 /* --- Testimonials --- */
@@ -634,6 +632,50 @@ footer {
 .payment-method.active {
     border-color: var(--primary-color);
     background: rgba(252, 3, 123, 0.05);
+}
+
+/* --- Additional Styles --- */
+.feature-list {
+    list-style: none;
+    margin-top: 15px;
+    flex-grow: 1;
+}
+
+.feature-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.feature-list i {
+    color: #25d366;
+}
+
+.contact-info-box {
+    background: white;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.map-container {
+    height: 400px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin-top: 50px;
 }
 
 /* --- Responsive --- */

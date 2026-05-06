@@ -187,7 +187,9 @@ header.sticky {
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--primary-color);
+    color: var(--white);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
 }
 
 .mobile-menu-btn {
@@ -431,20 +433,19 @@ header.sticky {
 
 /* --- Footer --- */
 footer {
-    background-color: #111;
+    background: #111;
     color: var(--white);
-    padding: 80px 0 30px;
+    padding: 60px 0 20px;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .footer-col h4 {
-    margin-bottom: 25px;
     font-size: 1.2rem;
 }
 

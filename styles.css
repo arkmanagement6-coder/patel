@@ -37,9 +37,21 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
     line-height: 1.2;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
 }
 
 a {
@@ -61,11 +73,17 @@ img {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 25px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: clamp(50px, 8vw, 100px) 0;
 }
 
 .text-center {
@@ -107,6 +125,18 @@ img {
 
 .pink-text {
     color: var(--primary-color);
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-color), #ff4d94);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.creative-title {
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
 }
 
 /* --- Header --- */
@@ -213,14 +243,15 @@ header.sticky {
 }
 
 .slide-content h1 {
-    font-size: 3.5rem;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
 .slide-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     margin-bottom: 30px;
     opacity: 0.9;
+    max-width: 600px;
 }
 
 .hero-btns {
@@ -644,6 +675,19 @@ footer {
         flex-direction: column;
     }
     .hero {
-        height: 80vh;
+        height: 70vh;
+    }
+    .hero-btns {
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .service-card-v2 {
+        padding: 20px;
+    }
+    .card-btns {
+        grid-template-columns: 1fr;
     }
 }

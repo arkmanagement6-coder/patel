@@ -467,15 +467,16 @@ footer {
 
 /* --- Offer Banner --- */
 .offer-banner {
-    background: #000;
-    color: var(--white);
+    background: #fff;
+    color: var(--primary-color);
     text-align: center;
     padding: 10px 0;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     height: 40px;
     position: relative;
     z-index: 1001;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 /* --- Testimonials --- */

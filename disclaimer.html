@@ -5,26 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disclaimer | KRV Management</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="sticky">
+
+    <!-- Header -->
+    <header>
         <div class="container nav-wrapper">
             <a href="index.html" class="logo">KRV <span>Management</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="admin.html" class="nav-link"><i class="fas fa-user-shield"></i></a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <section class="section-padding" style="margin-top: 80px;">
+    <section class="page-header" style="overflow: hidden; position: relative;">
+        <div class="bg-icons">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-info-circle"></i>
+            <i class="fas fa-bullhorn"></i>
+        </div>
         <div class="container">
-            <h1 class="pink-text">Disclaimer</h1>
-            <p style="margin-top: 20px;">We are not responsible for:</p>
-            <ul style="margin-top: 10px; margin-left: 20px;">
-                <li>Third-party service issues</li>
-                <li>Platform policy changes (Google, Meta, etc.)</li>
-                <li>Any business losses due to marketing results</li>
-            </ul>
+            <h1 class="creative-title">Legal <span class="text-gradient">Disclaimer</span></h1>
+            <p style="opacity: 0.9;">Important information regarding our services and liabilities.</p>
         </div>
     </section>
 
-    <footer><div class="container text-center"><p>&copy; 2026 KRV Management</p></div></footer>
+    <section class="section-padding">
+        <div class="container">
+            <div class="policy-content" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                <h2 class="pink-text">1. General Information</h2>
+                <p>All information provided by KRV Management on this website is for general business and informational purposes only. We strive to keep the information accurate, but we make no warranties about its completeness or reliability.</p>
+                <hr style="margin: 30px 0; opacity: 0.1;">
+
+                <h2 class="pink-text">2. No Guarantee</h2>
+                <p>While we work hard to deliver results, KRV Management does <strong>not</strong> guarantee:</p>
+                <ul class="feature-list" style="margin: 20px 0;">
+                    <li><i class="fas fa-times-circle pink-text"></i> Exact business results or specific outcomes</li>
+                    <li><i class="fas fa-times-circle pink-text"></i> Sales or revenue increase</li>
+                    <li><i class="fas fa-times-circle pink-text"></i> Specific rankings on search engines (SEO)</li>
+                </ul>
+                <hr style="margin: 30px 0; opacity: 0.1;">
+
+                <h2 class="pink-text">3. Third-Party Platforms</h2>
+                <p>We are not responsible for issues arising from third-party platforms, including but not limited to:</p>
+                <ul class="feature-list" style="margin: 20px 0;">
+                    <li>Changes in Meta (Facebook/Instagram) advertising policies</li>
+                    <li>Google Search algorithm updates</li>
+                    <li>Hosting or server-side downtime/technical issues</li>
+                </ul>
+                <hr style="margin: 30px 0; opacity: 0.1;">
+
+                <h2 class="pink-text">4. External Links</h2>
+                <p>Our website may contain links to external sites. We are not responsible for the content, privacy policies, or practices of any third-party websites.</p>
+                <hr style="margin: 30px 0; opacity: 0.1;">
+
+                <h2 class="pink-text">5. Professional Advice</h2>
+                <p>Our services and the information on our site do not replace professional legal, financial, or business advice. You should consult with appropriate professionals before making significant business decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: white;">KRV <span>Management</span></a>
+                    <p style="margin-top: 20px; color: #888;">Modern digital solutions for growing businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KRV Management. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

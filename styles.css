@@ -729,19 +729,29 @@ footer {
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
-        top: 80px;
+        top: 120px; /* Banner (40) + Header padding/height (80) */
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 120px);
         background: var(--white);
         flex-direction: column;
         align-items: center;
         padding: 50px 0;
         transition: 0.5s;
         z-index: 999;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .nav-menu .nav-link {
+        color: var(--text-dark);
+        font-size: 1.5rem;
+        margin-bottom: 20px;
     }
     .nav-menu.active {
         left: 0;
+    }
+    header.sticky .nav-menu {
+        top: 70px;
+        height: calc(100vh - 70px);
     }
     .mobile-menu-btn {
         display: block;
